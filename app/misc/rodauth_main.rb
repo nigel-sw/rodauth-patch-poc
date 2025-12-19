@@ -6,10 +6,10 @@ class RodauthMain < Rodauth::Rails::Auth
     enable :create_account, :verify_account, :verify_account_grace_period,
       :login, :logout, :remember,
       :reset_password, :change_password, :change_login, :verify_login_change,
-      :close_account, :json, :jwt
+      :close_account, :json #, :jwt
 
     only_json? false
-    jwt_secret Rails.application.credentials.secret_key_base
+    # jwt_secret Rails.application.credentials.secret_key_base
 
     # See the Rodauth documentation for the list of available config options:
     # http://rodauth.jeremyevans.net/documentation.html
