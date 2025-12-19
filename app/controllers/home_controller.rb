@@ -7,8 +7,8 @@ class HomeController < ApplicationController
     @account = rodauth.account
     if @account.update(account_params)
       respond_to do |format|
-        format.html { redirect_to root_path, notice: "Profile updated successfully." }
-        format.json { render json: { message: "Profile updated successfully." }, status: :ok }
+        format.html { redirect_to root_path, notice: "Profile updated successfully [HTML]." }
+        format.json { render json: { message: "Profile updated successfully [JSON]." }, status: :ok }
       end
     else
       respond_to do |format|
