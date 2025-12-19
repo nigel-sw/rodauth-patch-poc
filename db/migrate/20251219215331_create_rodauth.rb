@@ -1,4 +1,4 @@
-class CreateRodauth < ActiveRecord::Migration[8.1]
+class CreateRodauth < ActiveRecord::Migration[8.0]
   def change
     create_table :accounts do |t|
       t.integer :status, null: false, default: 1
