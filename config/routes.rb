@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+  patch "home/update_profile" => "home#update_profile", as: :update_profile
 end

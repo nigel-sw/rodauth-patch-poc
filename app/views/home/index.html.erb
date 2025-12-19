@@ -1,0 +1,36 @@
+<h1>Home Page</h1>
+Welcome to the Home Page! <%= @account[:email] %>
+
+<form id="update-profile-form">
+  <div>
+    <label for="account_status">Status</label>
+    <input type="text" name="status" id="account_status" value="<%= @account[:status] %>" />
+  </div>
+  <div>
+    <input type="submit" value="Update Profile" />
+  </div>
+</form>
+
+<script>
+document.getElementById('update-profile-form').addEventListener('submit', async function(event) {
+  event.preventDefault();
+  const status = document.getElementById('account_status').value;
+  const response = await fetch('<%= update_profile_path %>', {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+    },
+    credentials: 'same-origin',
+    body: JSON.stringify({ account: { status } })
+  });
+  const data = await response.json();
+  if (response.ok) {
+    alert('Profile updated successfully.');
+    // Optionally, update the page or redirect
+  } else {
+    alert('Error updating profile: ' + (data.error || 'Unknown error'));
+  }
+});
+</script>
