@@ -71,5 +71,5 @@ gem "sequel-activerecord_connection", "~> 2.0", require: false
 # Used by Rodauth for password hashing
 gem "bcrypt", "~> 3.1", require: false
 # Used by Rodauth for rendering built-in view and email templates
-gem "tilt", "~> 2.4", require: false
+gem "tilt", "~> 2.7", require: false
 gem "jwt"
